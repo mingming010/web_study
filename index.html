@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    body {
+      background-color: #d3d3d3;
+    }
+
+    .father {
+      height: 400px;
+      width: 300px;
+      margin: 50px auto 0;
+      padding-top: 10px;
+      background-color: #d3d3d3;
+    }
+
+    .time {
+      text-align: center;
+    }
+
+    ul {
+      margin: 50px 20px 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    li {
+      width: 60px;
+      height: 80px;
+      text-align: center;
+      font-size: 20px;
+      line-height: 80px;
+      color: #000000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="father">
+    <p class="time"></p>
+    <ul>
+      <li class="d"></li>
+      <li class="h"></li>
+      <li class="m"></li>
+      <li class="s"></li>
+  </div>
+  <script>
+    const p = document.querySelector('.time')
+    const dt = document.querySelector('.d')
+    const ht = document.querySelector('.h')
+    const mt = document.querySelector('.m')
+    const st = document.querySelector('.s')
+    function getdate() {
+      const date = new Date()
+      let h = date.getHours()
+      h = h < 10 ? '0' + h : h
+      let min = date.getMinutes()
+      min = min < 10 ? '0' + min : min
+      let s = date.getSeconds()
+      s = s < 10 ? '0' + s : s
+      return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 ${h}:${min}:${s}`
+      // return date.toLocaleDateString()
+    }
+    getdate
+    p.innerHTML = getdate()
+    setInterval(function () {
+      p.innerHTML = getdate()
+      const date = new Date()
+      // console.log(date.getTime())
+      // console.log(+new Date())
+    }, 200)
+    function gettime() {
+      const date = new Date()
+      const now = +new Date()
+      const brithday = +new Date('2024-2-24 00:00:00')
+      const count = (brithday - date) / 1000
+      let d = parseInt(count / 60 / 60 / 24)
+      d = d < 10 ? '0' + d : d
+      let h = parseInt(count / 60 / 60 % 24)
+      h = h < 10 ? '0' + h : h
+      let m = parseInt(count / 60 % 60)
+      m = m < 10 ? '0' + m : m
+      let s = parseInt(count % 60)
+      s = s < 10 ? '0' + s : s
+      console.log(d, h, m, s)
+      dt.innerHTML = `${d}天`
+      ht.innerHTML = `${h}时`
+      mt.innerHTML = `${m}分`
+      st.innerHTML = `${s}秒`
+    }
+    setInterval(function () {
+      gettime()
+    }, 200)
+  </script>
+</body>
+
+</html>
