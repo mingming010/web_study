@@ -75,7 +75,7 @@
     const mt = document.querySelector('.m')
     const st = document.querySelector('.s')
     const father = document.querySelector('.father')
-    const birthdaytime = '2024-2-23 13:30:00'
+    const birthdaytime = '2024-2-24 00:00:00'
     function getdate() {
       const date = new Date()
       let h = date.getHours()
@@ -93,15 +93,6 @@
       const date = new Date()
       // console.log(date.getTime())
       // console.log(+new Date())
-    }, 500)
-    const gettimes = setInterval(function () {
-      const date = new Date()
-      const now = +new Date()
-      const brithday = +new Date(birthdaytime)
-      if (brithday - date <= -1000) {
-        father.removeChild(father.children[1])
-        clearInterval(gettimes)
-      }
     }, 500)
     function gettime() {
       const date = new Date()
